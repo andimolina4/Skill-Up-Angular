@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home-page/home.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,20 @@ const routes: Routes = [
         (m) => m.AuthRegistroModule
       ),
   },
+  {
+    path: 'auth/reset-password',
+    loadChildren: () =>
+      import('./pages/auth-reset-password/auth-reset-password.module').then(
+        (m) => m.AuthResetPasswordModule
+      ),
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
+  },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: '**',
     loadChildren: () =>
