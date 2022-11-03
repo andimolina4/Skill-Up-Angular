@@ -1,3 +1,43 @@
-<div class="container">
-  
+<div class="container-fluid">
+  <p class="text-center">Registrarse</p>
+  <form [formGroup]="registerForm">
+    <div class="form-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name" [(ngModel)]="user.first_name">
+        <mat-icon matPrefix fontSet="fa" fontIcon="fa-user"></mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Apellido</mat-label>
+        <input matInput formControlName="lastname" [(ngModel)]="user.last_name">
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput required formControlName="email" [(ngModel)]="user.email">
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput required formControlName="password" [(ngModel)]="user.password" type="password">
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Repetir Contraseña</mat-label>
+        <input matInput formControlName="repeatPassword" type="password">
+        <mat-hint style="font-size: 12px;">*Requerido</mat-hint>
+      </mat-form-field>
+    </div>
+    <mat-checkbox>Acepto los <a href="">Terminos y Condiciones</a></mat-checkbox>
+    <br>
+    <br>
+    <div class="form-field">
+      <button mat-raised-button color="primary" type="button" (click)="onSignUp()">Registrarse</button>
+    </div>
+  </form>
 </div>
