@@ -7,7 +7,7 @@ import { UserRequest, UserResponse } from '@app/interfaces/user.interface';
 })
 export class AuthService {
 
-  url = 'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/api-docs/users'
+  url = 'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/users'
 
   constructor(private http: HttpClient) { }
 

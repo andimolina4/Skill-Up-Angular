@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { AuthService } from '@app/core/services/auth/auth.service';
 import { UserRequest } from '@app/interfaces/user.interface';
 import { faCoffee, faUserMd } from '@fortawesome/free-solid-svg-icons';
+import { CustomValidators } from '../validators/customValidators';
 
 @Component({
   selector: 'app-registro',
@@ -28,12 +29,15 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this._formBuilder.group({
-      name: [null, Validators.required],
-      lastname: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required]],
-      repeatPassword: [null, [Validators.required]]
-    })
+      name: [''],
+      lastname: [''],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      repeatPassword: ['', [Validators.required, Validators.minLength(6)]],
+      check: [false, Validators.requiredTrue]
+    },
+    { validator: CustomValidators.MatchingPasswords })
+    // }, { validator: this.checkPasswords })
   }
 
   onSignUp() {
@@ -45,6 +49,14 @@ export class RegistroComponent implements OnInit {
         console.log(err);
       }
     })
+  }
+
+  // Validamos que las contrasenias coincidan
+
+  checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => {
+    let pass = this.registerForm.get('password')?.value;
+    let confirmPass = this.registerForm.get('confirmPassword')?.value
+    return pass === confirmPass ? null : { notSame: true }
   }
 
 }
