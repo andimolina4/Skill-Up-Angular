@@ -36,7 +36,7 @@ export class RegistroComponent implements OnInit {
       repeatPassword: ['', [Validators.required, Validators.minLength(6)]],
       check: [false, Validators.requiredTrue]
     },
-    { validator: CustomValidators.MatchingPasswords })
+    { validator: CustomValidators.MatchingPasswords, updatedOn: 'blur' })
     // }, { validator: this.checkPasswords })
   }
 

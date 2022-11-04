@@ -20,6 +20,8 @@
         <mat-label>Email</mat-label>
         <input matInput required formControlName="email" [(ngModel)]="user.email">
         <mat-icon matPrefix>email</mat-icon>
+        <mat-error *ngIf="registerForm.controls['email'].invalid">El Email es obligatorio.</mat-error>
+        <mat-error *ngIf="registerForm.controls['email'].hasError('pattern')">Por favor, ingrese un email válido.</mat-error>
       </mat-form-field>
     </div>
     <div class="form-field">
@@ -27,7 +29,8 @@
         <mat-label>Contraseña</mat-label>
         <input matInput required formControlName="password" [(ngModel)]="user.password" type="password">
         <mat-icon matPrefix>lock</mat-icon>
-        <mat-error *ngIf="registerForm.controls['password'].invalid">La contraseña es obligatoria.</mat-error>
+        <mat-error *ngIf="registerForm.controls['password'].invalid && !registerForm.controls['password'].hasError('minlength')" >La contraseña es obligatoria.</mat-error>
+        <mat-error *ngIf="registerForm.controls['password'].hasError('minlength')">La contraseña es obligatoria.</mat-error>
       </mat-form-field>
     </div>
     <div class="form-field">
@@ -35,7 +38,7 @@
         <mat-label>Repetir Contraseña</mat-label>
         <input matInput formControlName="repeatPassword" type="password">
         <mat-icon matPrefix>lock</mat-icon>
-        <mat-error *ngIf="registerForm.get('repeatPassword')?.errors?.['required']">Repita su contraseña por favor.</mat-error>
+        <!-- <mat-error *ngIf="registerForm.controls['repeatPassword'].invalid">Repita su contraseña por favor.</mat-error> -->
         <mat-error *ngIf="registerForm.hasError('not_matching')">Las contraseñas no coinciden.</mat-error>
         <mat-hint style="font-size: 12px;">*Requerido</mat-hint>
       </mat-form-field>
