@@ -5,6 +5,11 @@ import { HomeComponent } from './home-page/home.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  },
+  {
+    path: 'dashboard',
     loadChildren: () =>
       import('./components/dashboard/dashboard.module').then(
         (m) => m.DashboardModule
@@ -41,9 +46,27 @@ const routes: Routes = [
         (m) => m.MovementsModule
       ),
   },
-  { path: 'send-founds', loadChildren: () => import('./components/send-founds/send-founds.module').then(m => m.SendFoundsModule) },
-  { path: 'exchange', loadChildren: () => import('./components/exchange/exchange.module').then(m => m.ExchangeModule) },
-  { path: 'investment', loadChildren: () => import('./components/investment/investment.module').then(m => m.InvestmentModule) },
+  {
+    path: 'send-founds',
+    loadChildren: () =>
+      import('./components/send-founds/send-founds.module').then(
+        (m) => m.SendFoundsModule
+      ),
+  },
+  {
+    path: 'exchange',
+    loadChildren: () =>
+      import('./components/exchange/exchange.module').then(
+        (m) => m.ExchangeModule
+      ),
+  },
+  {
+    path: 'investment',
+    loadChildren: () =>
+      import('./components/investment/investment.module').then(
+        (m) => m.InvestmentModule
+      ),
+  },
 ];
 
 @NgModule({
