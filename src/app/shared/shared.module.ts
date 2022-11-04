@@ -4,10 +4,11 @@ import { LoaderComponent } from './loader/loader.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@app/material/material.module';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [LoaderComponent, HeaderComponent],
+  declarations: [LoaderComponent, HeaderComponent, FooterComponent],
   imports: [CommonModule, RouterModule, MaterialModule],
-  exports: [LoaderComponent, HeaderComponent],
+  exports: [LoaderComponent, HeaderComponent, FooterComponent],
 })
 export class SharedModule {}
