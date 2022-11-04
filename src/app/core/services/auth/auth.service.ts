@@ -13,6 +13,6 @@ export class AuthService {
 
   signUp(user: UserRequest) {
     console.log(user)
-    return this.http.post(this.url, user, {responseType: 'json'});
+    return this.http.post(this.url, user);
   }
 }
