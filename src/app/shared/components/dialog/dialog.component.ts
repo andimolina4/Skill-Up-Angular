@@ -9,9 +9,9 @@ export interface DialogData {
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
 })
-export class DialogOverviewExampleDialog {
+export class DialogTermsAndCondition {
   constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    public dialogRef: MatDialogRef<DialogTermsAndCondition>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {}
 
