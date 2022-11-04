@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertsService } from '@app/core/services/alerts/alerts.service';
 import { AuthService } from '@app/core/services/auth/auth.service';
 import { UserRequest } from '@app/interfaces/user.interface';
 import { faCoffee, faUserMd } from '@fortawesome/free-solid-svg-icons';
@@ -25,7 +27,7 @@ export class RegistroComponent implements OnInit {
 
   registerForm!: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder, private authService: AuthService) { }
+  constructor(private _formBuilder: FormBuilder, private authService: AuthService, private alertsService: AlertsService, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = this._formBuilder.group({
@@ -43,10 +45,12 @@ export class RegistroComponent implements OnInit {
   onSignUp() {
     this.authService.signUp(this.user).subscribe({
       next: res => {
-        console.log(res);
+        this.router.navigate(['auth/login']);
+        this.alertsService.showAlertSuccess('¡Registro exitoso!')
       },
       error: err => {
         console.log(err);
+        this.alertsService.showAlertError('Hubo un error', err.error.error);
       }
     })
   }
