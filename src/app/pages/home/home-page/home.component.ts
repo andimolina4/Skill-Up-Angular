@@ -76,7 +76,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   logout() {
-    this.authService.logout();
     Swal.fire({
       title: '¿Estás seguro?',
       text: 'Estás a punto de cerrar sesión',

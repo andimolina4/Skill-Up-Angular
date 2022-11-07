@@ -1,2 +1,19 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="example-container" [class.is-mobile]="mobileQuery.matches" >
+  <mat-sidenav #sidenav mode="side" opened class="sidenav"
+    [mode]="mobileQuery.matches ? 'over' : 'side'"
+    [fixedInViewport]="true"
+    [fixedBottomGap]="0"
+    >
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content class="content-container">
+    <app-header (click)="sidenav.toggle()" [panelStatus]="sidenav.opened"></app-header>
+    <div class="content">
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
 <app-footer></app-footer>

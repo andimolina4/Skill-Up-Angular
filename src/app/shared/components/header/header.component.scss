@@ -1,0 +1,44 @@
+.header{
+  position: relative;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666d77;
+  /*.options{
+    .profile{
+      display: flex;
+      align-items: center;
+      p{
+        font-size: 14px;
+        margin: 0;
+        padding-right: 5px;
+      }
+      .avatar-icon{
+        width: 50px;
+        height: 50px;
+        background-color: #666d77;
+        border-radius: 50%;
+      }
+    }
+
+  }*/
+  .logo-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    img{
+      height: 60%;
+    }
+    .logo{
+      transition: 0.5s;
+      transition-delay: 0.3s;
+      transform: translateY(-200px);
+    }
+    .hidden{
+      transition-delay: 0;
+      transform: translate(0);
+    }
+  }
+}
+
