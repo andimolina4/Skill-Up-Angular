@@ -28,4 +28,8 @@ export class AuthService {
   isLoggedIn() {
     return !!localStorage.getItem('accessToken');
   }
+
+  logout() {
+    localStorage.removeItem('accessToken');
+  }
 }

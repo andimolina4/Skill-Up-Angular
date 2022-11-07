@@ -1,7 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '@app/core/services/auth/auth.service';
 import { Observable, map, shareReplay } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -67,12 +69,27 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {}
 
   logout() {
-    console.log('logout');
+    this.authService.logout();
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Estás a punto de cerrar sesión',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, cerrar sesión',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Sesión cerrada', '', 'success');
+        this.router.navigate(['/auth/login']);
+      }
+    });
   }
 }
