@@ -12,8 +12,17 @@ export class HomeComponent implements OnInit {
   ticket = faTicket
 
   constructor(
-  ) {}
+    ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
+
+
 
 }
+
+
+
+
+
