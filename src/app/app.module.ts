@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { MaterialModule } from './material/material.module';
 import { SharedModule } from './shared/shared.module';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [

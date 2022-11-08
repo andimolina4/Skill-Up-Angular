@@ -26,6 +26,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'perfil',
+    loadChildren: () =>
+      import('./pages/usuarios/usuario-perfil.module').then(
+        (m) => m.UsuarioPerfilModule
+      ),
+  },
+  {
     path: 'home',
     canActivate: [HomeGuard],
     component: HomeComponent,
