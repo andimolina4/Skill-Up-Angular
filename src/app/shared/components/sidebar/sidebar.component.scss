@@ -1,0 +1,59 @@
+.sidenav-container{
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  .logo{
+    width:150px;
+    padding-left: 10px;
+  }
+  .options{
+    margin-top: 50px;
+    color: white;
+    .item{
+      color: inherit;
+      font-weight: bold;
+      position: relative;
+      .icon{
+        padding: 0 5px;
+      }
+    }
+    .active{
+      .selected{
+        position: absolute;
+        height: 0px;
+        width: 5px;
+        left: 0;
+        bottom: 0;
+        background-color: white;
+        animation: grow 0.2s ease-in-out forwards;
+      }
+    }
+  }
+  .last{
+    width: 100%;
+    position: absolute;
+    bottom: 5px;
+  }
+  .guest-message{
+    padding: 0 10px;
+    h4{
+      font-weight: 600;
+      text-align: center;
+    }
+    p{
+      font-weight: 500;
+    }
+    .link{
+      text-decoration: underline;
+    }
+  }
+}
+
+@keyframes grow {
+  from{
+    height: 0px;
+  }
+  to{
+    height: 48px;
+  }
+}

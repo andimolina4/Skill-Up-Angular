@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.user).subscribe({
       next: res => {
         localStorage.setItem('accessToken', res.accessToken);
+        this.authService.updateLoggedInState()
         this.router.navigate(['home/dashboard']);
       },
       error: err => {
