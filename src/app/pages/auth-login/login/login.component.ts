@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertsService } from '@app/core/services/alerts/alerts.service';
 import { AuthService } from '@app/core/services/auth/auth.service';
 
 export interface UserLoginRequest {
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private alertsService: AlertsService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
       },
       error: err => {
         console.log(err);
+        this.alertsService.showAlertError('No fué posible iniciar sesión', `Error: ${err.error.error}. Por favor, verifique sus datos e intente nuevamente.`);
       }
     })
   }
