@@ -11,47 +11,46 @@ export class GraphicsComponent implements OnInit {
 
   @Input() title:string = ''
 
+  past7Days = [...Array(30).keys()].map(index => {
+    const date = new Date();
+    date.setDate(date.getDate() - index);
+    let format = `${date.getDay()}/${date.getMonth()}`
+    return date;
+  });
+
   public lineChartData: ChartConfiguration<'line'>['data'] = {
-    labels: [...Array(31).keys()],
+    labels: this.past7Days.reverse(),
     datasets: [
       {
-        data: [{x:0,y:10}, {x:5,y:23},{x:7,y:35},{x:16,y:70},{x:21,y:50},{x:30,y:40}],
+        data: [{x:28,y:20}],
         label: 'Balance',
         fill: true,
         tension: 0.5,
         borderColor: '#374151',
         backgroundColor: '#3b86ff69',
-      },
-      {
-        data: [{x:0,y:10}, {x:5,y:34},{x:7,y:65},{x:16,y:70},{x:21,y:15},{x:30,y:20}],
-        label: 'Ingresos',
-        fill: true,
-        tension: 0.5,
-        borderColor: '#374151',
-        backgroundColor: '#38d9968e',
-      },
-      {
-        data: [{x:0,y:5}, {x:5,y:2},{x:7,y:7},{x:16,y:12},{x:21,y:25},{x:30,y:35}],
-        label: 'Egresos',
-        fill: true,
-        tension: 0.5,
-        borderColor: '#374151',
-        backgroundColor: '#38d9968e',
-      },
+      }
     ],
   };
   public lineChartOptions: ChartOptions<'line'> = {
     responsive: true,
     maintainAspectRatio:true,
+    scales:{
+      screenX:{
+        type:'timeseries'
+      }
+    }
+  }
 
 
-  };
   public lineChartLegend = true;
 
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
-  }
+    console.log(this.past7Days)
+    }
+
 
 }
