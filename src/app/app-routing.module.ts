@@ -32,7 +32,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
   },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: '**',
     loadChildren: () =>

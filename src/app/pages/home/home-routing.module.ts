@@ -4,7 +4,7 @@ import { HomeComponent } from './home-page/home.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     redirectTo: 'dashboard',
     pathMatch: 'full',
   },
