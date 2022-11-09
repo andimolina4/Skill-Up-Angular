@@ -1,7 +1,30 @@
-table {
+.table-container{
   width: 100%;
   max-width: 900px;
   margin: auto;
+  .title{
+    color:#374151;
+    font-weight: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .paginator-options{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+    p{
+      margin-bottom: 0;
+    }
+    .enabled{
+      color: #3b86ff;
+      cursor: pointer;
+    }
+  }
+
+}
+table{
+  width: 100%;
 }
 
 .mat-form-field {
