@@ -54,4 +54,14 @@ export class AuthService {
   }
 */
 
+  //get user logged
+
+  getUserLogged() {
+    return this.http.get<UserResponse>(this.urlAuth + '/me');
+  }
+
+  updateUser(user: UserRequest, id: number) {
+    return this.http.put<UserResponse>(this.url + `/${id}`, user );
+  }
+
 }
