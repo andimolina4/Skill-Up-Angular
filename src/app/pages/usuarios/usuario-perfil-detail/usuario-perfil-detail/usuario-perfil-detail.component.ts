@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertsService } from '@app/core/services/alerts/alerts.service';
 import { AuthService } from '@app/core/services/auth/auth.service';
-import { UserRequest } from '@app/interfaces/user.interface';
+import { UserResponse } from '@app/interfaces/user.interface';
 
 @Component({
   selector: 'app-usuario-perfil-detail',
@@ -10,13 +10,16 @@ import { UserRequest } from '@app/interfaces/user.interface';
 })
 export class UsuarioPerfilDetailComponent implements OnInit {
 
-  user: UserRequest = {
+  user: UserResponse = {
+    id: 0,
     first_name: '',
     last_name: '',
     email: '',
     password: '',
     roleId: 0,
-    points: 0
+    points: 0,
+    createdAt: new Date,
+    updatedAt: new Date
   };
 
   constructor(private authService: AuthService, private alertsService: AlertsService) { }

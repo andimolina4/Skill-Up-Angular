@@ -9,6 +9,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { MaterialModule } from './material/material.module';
 import { SharedModule } from './shared/shared.module';
+import { AuthInterceptorService } from './core/interceptors/auth-interceptor.service';
 @NgModule({
   declarations: [AppComponent],
   imports: [

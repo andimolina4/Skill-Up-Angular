@@ -57,7 +57,7 @@ export class AuthService {
   //get user logged
 
   getUserLogged() {
-    return this.http.get<UserRequest>(this.urlAuth + '/me');
+    return this.http.get<UserResponse>(this.urlAuth + '/me');
   }
 
 }
