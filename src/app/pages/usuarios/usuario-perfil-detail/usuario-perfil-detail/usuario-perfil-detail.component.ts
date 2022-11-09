@@ -22,14 +22,14 @@ export class UsuarioPerfilDetailComponent implements OnInit {
     updatedAt: new Date
   };
 
-  user: UserRequest = {
-    first_name: this.userResponse.first_name,
-    last_name: this.userResponse.last_name,
-    email: this.userResponse.email,
-    password: this.userResponse.password,
-    roleId: this.userResponse.roleId,
-    points: this.userResponse.points
-  };
+  user: UserRequest =  {
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    roleId: 0,
+    points: 0
+  };;
 
   isEditMode = false;
 
@@ -42,7 +42,15 @@ export class UsuarioPerfilDetailComponent implements OnInit {
   getUser() {
     this.authService.getUserLogged().subscribe({
       next: resp => {
-        this.user = resp;
+        this.userResponse = resp;
+        this.user = {
+          first_name: this.userResponse.first_name,
+          last_name: this.userResponse.last_name,
+          email: this.userResponse.email,
+          password: this.userResponse.password,
+          roleId: this.userResponse.roleId,
+          points: this.userResponse.points
+        };
       },
       error: err => {
         this.alertsService.showAlertError('Ocurrió un error al tratar de mostrar su perfil.', 'Intente de nuevo mas tarde.')
@@ -52,7 +60,16 @@ export class UsuarioPerfilDetailComponent implements OnInit {
 
   onEditMode() {
     if (this.isEditMode) {
-      
+      this.authService.updateUser(this.user, this.userResponse.id).subscribe({
+        next: resp => {
+          console.log(resp);
+          this.isEditMode = false;
+        },
+        error: err => {
+          console.log(err);
+          this.alertsService.showAlertError('Ocurrió un error al intentar actualizar los datos', 'Intente nuevamente mas tarde.');
+        }
+      })
     }
     if (!this.isEditMode) {
       this.isEditMode = true;

@@ -9,9 +9,9 @@
               <img src="../../../../../assets/img/avatar.png"
                 alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
               <h5 *ngIf="!isEditMode">{{ user.first_name}} {{ user.last_name}}</h5>
-              <div *ngIf="isEditMode">
-                <input type="text" name="first_name" [(ngModel)]="user.first_name">
-                <input type="text" name="last_name" [(ngModel)]="user.last_name">
+              <div *ngIf="isEditMode" class="form-group flex">
+                <input type="text" name="first_name" class="form-control" [(ngModel)]="user.first_name">
+                <input type="text" name="last_name" class="form-control" [(ngModel)]="user.last_name">
               </div>
               <i class="far fa-edit mb-5"></i>
             </div>
