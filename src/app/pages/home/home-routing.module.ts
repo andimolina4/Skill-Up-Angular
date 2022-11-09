@@ -60,7 +60,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'investment',
+    path: 'inversiones',
     loadChildren: () =>
       import('./components/investment/investment.module').then(
         (m) => m.InvestmentModule
