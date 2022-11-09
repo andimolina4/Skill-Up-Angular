@@ -1,4 +1,91 @@
 <mat-tab-group mat-align-tabs="start">
-  <mat-tab label="First">Content 1</mat-tab>
-  <mat-tab label="Second">Content 2</mat-tab>
+  <mat-tab label="Plazo Fijo Proyección">
+    .
+    <h3>Calcule el Rendimiento de su plazo fijo</h3>
+
+    <form
+      [formGroup]="fixedTermDepositForm"
+      (ngSubmit)="calculateFixedTermDeposit()"
+      class="form-plazo-fijo"
+    >
+      <div class="col">
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            formControlName="amount"
+            placeholder="Monto"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            formControlName="interest"
+            placeholder="Interés (%)"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            formControlName="term"
+            placeholder="Plazo"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select
+            formControlName="termType"
+            placeholder="Tipo de plazo"
+            required
+          >
+            <mat-option value="days">Días</mat-option>
+            <mat-option value="months">Meses</mat-option>
+            <mat-option value="years">Años</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field>
+          <mat-select
+            formControlName="frequency"
+            placeholder="Frecuencia"
+            required
+          >
+            <mat-option value="daily">Diaria</mat-option>
+            <mat-option value="monthly">Mensual</mat-option>
+            <mat-option value="yearly">Anual</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select
+            formControlName="compounding"
+            placeholder="Capitalización"
+            required
+          >
+            <mat-option value="simple">Simple</mat-option>
+            <mat-option value="compound">Compuesta</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" type="submit">Calcular</button>
+    </form>
+    <div class="" *ngIf="resultado">
+      <h3>Resultado</h3>
+      <p class="fs-4">
+        El rendimiento de su inversion es:$ {{ resultado | number }}
+      </p>
+      <p class="fs-4">
+        El porcentaje de rendimiento es: {{ profitPercentage | number }}%
+      </p>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Plazo Fijo">Content 2</mat-tab>
 </mat-tab-group>
