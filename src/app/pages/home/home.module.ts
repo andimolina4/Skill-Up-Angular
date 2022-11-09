@@ -9,6 +9,6 @@ import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [CommonModule, HomeRoutingModule, MaterialModule,FontAwesomeModule,SharedModule],
+  imports: [CommonModule, HomeRoutingModule, MaterialModule,FontAwesomeModule],
 })
 export class HomeModule {}

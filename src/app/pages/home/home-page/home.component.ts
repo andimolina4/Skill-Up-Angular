@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { faScaleBalanced, faPiggyBank, faTicket } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +6,6 @@ import { faScaleBalanced, faPiggyBank, faTicket } from '@fortawesome/free-solid-
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  scaleIcon = faScaleBalanced
-  piggy = faPiggyBank
-  ticket = faTicket
 
   constructor(
     ) {}

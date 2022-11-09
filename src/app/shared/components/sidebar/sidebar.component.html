@@ -3,14 +3,14 @@
   <img class="logo" src="../../../../assets/img/logo1.png">
   <ng-container *ngIf="isLogged;else guest">
     <mat-nav-list class="options">
-      <mat-list-item class="item" routerLink="/home" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="shapes"></fa-icon>Dashboard</mat-list-item>
-      <mat-list-item class="item" routerLink="/saldo" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="piggy"></fa-icon>Saldo</mat-list-item>
-      <mat-list-item class="item" routerLink="/gastos" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="ticket"></fa-icon>Gastos</mat-list-item>
-      <mat-list-item class="item" routerLink="/balance" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="scale"></fa-icon>Balance</mat-list-item>
-      <mat-list-item class="item" routerLink="/movimientos" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="transfer"></fa-icon>Movimientos</mat-list-item>
-      <mat-list-item class="item" routerLink="/enviar" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="send"></fa-icon>Enviar Dinero</mat-list-item>
-      <mat-list-item class="item" routerLink="/cambiarDivisas" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="exchange"></fa-icon>Cambiar Divisas</mat-list-item>
-      <mat-list-item class="item" routerLink="/inversiones" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="chart"></fa-icon>Inversiones</mat-list-item>
+      <mat-list-item class="item" routerLink="/home/dashboard" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="shapes"></fa-icon>Dashboard</mat-list-item>
+      <mat-list-item class="item" routerLink="/home/saldo" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="piggy"></fa-icon>Saldo</mat-list-item>
+      <mat-list-item class="item" routerLink="/home/gastos" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="ticket"></fa-icon>Gastos</mat-list-item>
+      <mat-list-item class="item" routerLink="/home/balance" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="scale"></fa-icon>Balance</mat-list-item>
+      <mat-list-item class="item" routerLink="/home/movimientos" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="transfer"></fa-icon>Movimientos</mat-list-item>
+      <mat-list-item class="item" routerLink="/home/enviar" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="send"></fa-icon>Enviar Dinero</mat-list-item>
+      <mat-list-item class="item" routerLink="/home/cambiarDivisas" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="exchange"></fa-icon>Cambiar Divisas</mat-list-item>
+      <mat-list-item class="item" routerLink="/home/inversiones" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="chart"></fa-icon>Inversiones</mat-list-item>
     </mat-nav-list>
     <mat-nav-list class="options last">
       <mat-list-item class="item" routerLink="/perfil" routerLinkActive="active"><span class="selected"></span><fa-icon class="icon" [icon]="user"></fa-icon>Mi Perfil</mat-list-item>

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiResponseService {
-  baseUrl = 'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com/';
+  baseUrl = 'http://wallet-main.eba-ccwdurgr.us-east-1.elasticbeanstalk.com';
 
   constructor(private http: HttpClient) {}
 
@@ -25,9 +25,12 @@ export class ApiResponseService {
   //get all users
 
   getAllUsers() {
-    return this.http.get(this.baseUrl + 'users', this.httpOptions);
+    return this.http.get(this.baseUrl + '/users', this.httpOptions);
   }
   getAllTransactions():Observable<AccountList>{
-    return this.http.get<AccountList>(this.baseUrl + 'transactions')
+    return this.http.get<AccountList>(this.baseUrl + '/transactions')
+  }
+  getTransactionsPage(nextPage:string):Observable<AccountList>{
+    return this.http.get<AccountList>(this.baseUrl + nextPage)
   }
 }

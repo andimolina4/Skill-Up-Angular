@@ -21,7 +21,7 @@ export class GraphicsComponent implements OnInit {
   topup:Account[] =[]
   payments:Account[]=[]
 
-  past30Days = [...Array(30).keys()].map(index => {
+  past30Days = [...Array(31).keys()].map(index => {
     const date = new Date();
     date.setDate(date.getDate() - index);
     let format = `${date.getDate()}/${date.getMonth()}`
@@ -54,7 +54,7 @@ export class GraphicsComponent implements OnInit {
         fill: true,
         tension: 0.5,
         borderColor: '#374151',
-        backgroundColor: '#5edda8',
+        backgroundColor: '#757575',
       }
 
     ],
