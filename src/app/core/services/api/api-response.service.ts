@@ -26,7 +26,7 @@ export class ApiResponseService {
   //get all users
 
   getAllUsers() {
-    return this.http.get<UserResponse[]>(this.baseUrl + '/users', this.httpOptions);
+    return this.http.get<any>(this.baseUrl + '/users', this.httpOptions);
   }
   getAllTransactions():Observable<AccountList>{
     return this.http.get<AccountList>(this.baseUrl + '/transactions')

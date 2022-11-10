@@ -29,7 +29,7 @@ export class UsuarioPerfilDetailComponent implements OnInit {
     password: '',
     roleId: 0,
     points: 0
-  };
+  };;
 
   isEditMode = false;
 
@@ -48,7 +48,7 @@ export class UsuarioPerfilDetailComponent implements OnInit {
           last_name: this.userResponse.last_name,
           email: this.userResponse.email,
           password: this.userResponse.password,
-          roleId: 1,
+          roleId: this.userResponse.roleId,
           points: this.userResponse.points
         };
       },

@@ -11,36 +11,26 @@ import { UserResponse } from '@app/interfaces/user.interface';
 export class UsuariosListComponent implements OnInit {
 
   users: UserResponse[] = [];
-  userResponse: UserResponse = {
-    id: 0,
-    first_name: '',
-    last_name: '',
-    email: '',
-    password: '',
-    roleId: 0,
-    points: 0,
-    createdAt: new Date,
-    updatedAt: new Date
-  };
 
   constructor(private apiService: ApiResponseService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getUsers();
-    this.authService.getUserLogged().subscribe(resp => {
-      this.userResponse = resp;
-      console.log(this.userResponse);
-    })
   }
 
   getUsers() {
     this.apiService.getAllUsers().subscribe({
       next: resp => {
-        this.users = resp;
+        this.users = resp.data;
       },
       error: err => {
         console.log(err);
       }
     })
   }
+
+  getFirstLetter(word: string) {
+    return word.charAt(0);
+  }
+
 }

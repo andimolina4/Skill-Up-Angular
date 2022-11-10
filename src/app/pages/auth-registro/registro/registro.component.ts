@@ -21,7 +21,7 @@ export class RegistroComponent implements OnInit {
     last_name: '',
     email: '',
     password: '',
-    roleId: 2,
+    roleId: 1,
     points: 20
   };
 

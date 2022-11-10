@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsuarioListRoutingModule } from './usuarios-list-routing.module';
 import { UsuariosListComponent } from './usuarios-list.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -11,7 +12,8 @@ import { UsuariosListComponent } from './usuarios-list.component';
   ],
   imports: [
     CommonModule,
-    UsuarioListRoutingModule
+    UsuarioListRoutingModule,
+    MatButtonModule
   ]
 })
 export class UsuariosListModule { }
