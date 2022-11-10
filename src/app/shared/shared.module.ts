@@ -13,11 +13,14 @@ import { GraphicsComponent } from './components/graphics/graphics.component';
 import { NgChartsModule } from 'ng2-charts';
 import { MovementsComponent } from './components/movements/movements.component';
 import { TableComponent } from './components/table/table.component';
+import { TitleComponent } from './components/title/title.component';
+import { GraphicSingleComponent } from './components/graphic-single/graphic-single.component';
+import { TableSingleComponent } from './components/table-single/table-single.component';
 
 
 @NgModule({
-  declarations: [LoaderComponent, HeaderComponent, FooterComponent, SidebarComponent, GraphicsComponent, MovementsComponent, TableComponent],
+  declarations: [LoaderComponent, HeaderComponent, FooterComponent, SidebarComponent, GraphicsComponent, MovementsComponent, TableComponent, TitleComponent, GraphicSingleComponent, TableSingleComponent],
   imports: [CommonModule, RouterModule, MaterialModule,FontAwesomeModule,NgChartsModule],
-  exports: [LoaderComponent, HeaderComponent, FooterComponent,SidebarComponent,GraphicsComponent,TableComponent],
+  exports: [LoaderComponent, HeaderComponent, FooterComponent,SidebarComponent,GraphicsComponent,TableComponent,TitleComponent,GraphicSingleComponent,TableSingleComponent],
 })
 export class SharedModule {}

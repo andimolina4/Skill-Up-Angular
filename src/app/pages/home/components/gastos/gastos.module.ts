@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { GastosRoutingModule } from './gastos-routing.module';
 import { GastosComponent } from './gastos.component';
+import { SharedModule } from '@app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { GastosComponent } from './gastos.component';
   ],
   imports: [
     CommonModule,
-    GastosRoutingModule
+    GastosRoutingModule,
+    SharedModule
   ]
 })
 export class GastosModule { }
