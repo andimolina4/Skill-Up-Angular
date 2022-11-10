@@ -19,4 +19,11 @@ export interface UserResponse {
   createdAt: Date
 }
 
+export interface MessageResponse {
+  message: string
+}
+
+export interface PasswordRequest{
+  password: string
+}
 
