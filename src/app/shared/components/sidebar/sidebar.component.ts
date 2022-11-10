@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { faShapes, faPiggyBank, faTicket, faScaleBalanced, faMoneyBillTransfer, faPaperPlane, faRotate, faChartLine, faUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { faShapes, faPiggyBank, faTicket, faScaleBalanced, faMoneyBillTransfer, faPaperPlane, faRotate, faChartLine, faUser, faRightFromBracket, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '@app/core/services/auth/auth.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 
 @Component({
@@ -11,6 +12,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+
+  //Close on click on mobile
+  @Output() selected:EventEmitter<boolean> = new EventEmitter()
+  mobileQuery: MediaQueryList;
 
   //Auth
   isLogged:boolean = false
@@ -22,21 +27,23 @@ export class SidebarComponent implements OnInit {
   scale = faScaleBalanced
   transfer = faMoneyBillTransfer
   send = faPaperPlane
-  exchange = faRotate
   chart = faChartLine
   user = faUser
+  users = faUsers
   exit = faRightFromBracket
 
   constructor(
     private authService:AuthService,
-    private router:Router
-    ) { }
+    private router:Router,
+    private media: MediaMatcher,
+    ){
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    }
 
   ngOnInit(): void {
     this.authService.isLoggedIn().subscribe(
       data=>{
         this.isLogged = data
-        console.log(data)
       }
     )
   }
@@ -57,6 +64,13 @@ export class SidebarComponent implements OnInit {
         this.router.navigate(['/auth/login']);
       }
     });
+  }
+
+  hideNav(){
+    this.mobileQuery = this.media.matchMedia('(max-width: 600px)');
+    if(this.mobileQuery.matches){
+      this.selected.emit()
+    }
   }
 
 }

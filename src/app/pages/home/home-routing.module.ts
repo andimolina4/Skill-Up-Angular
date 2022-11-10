@@ -25,13 +25,6 @@ const routes: Routes = [
       import('./components/gastos/gastos.module').then((m) => m.GastosModule),
   },
   {
-    path: 'balance',
-    loadChildren: () =>
-      import('./components/balance/balance.module').then(
-        (m) => m.BalanceModule
-      ),
-  },
-  {
     path: 'my-account',
     loadChildren: () =>
       import('./components/my-account/my-account.module').then(

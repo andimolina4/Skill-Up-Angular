@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SaldoRoutingModule } from './saldo-routing.module';
 import { SaldoComponent } from './saldo.component';
+import { SharedModule } from '@app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { SaldoComponent } from './saldo.component';
   ],
   imports: [
     CommonModule,
-    SaldoRoutingModule
+    SaldoRoutingModule,
+    SharedModule
   ]
 })
 export class SaldoModule { }

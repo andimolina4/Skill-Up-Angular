@@ -1,10 +1,10 @@
 <mat-sidenav-container class="example-container" [class.is-mobile]="mobileQuery.matches" >
-  <mat-sidenav #sidenav mode="side" opened class="sidenav"
+  <mat-sidenav #sidenav mode="side" class="sidenav"
     [mode]="mobileQuery.matches ? 'over' : 'side'"
     [fixedInViewport]="true"
     [fixedBottomGap]="0"
     >
-    <app-sidebar></app-sidebar>
+    <app-sidebar (selected)="sidenav.close()"></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content class="content-container">
     <app-header (click)="sidenav.toggle()" [panelStatus]="sidenav.opened"></app-header>

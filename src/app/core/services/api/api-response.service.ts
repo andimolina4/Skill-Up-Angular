@@ -35,3 +35,4 @@ export class ApiResponseService {
     return this.http.get<AccountList>(this.baseUrl + nextPage)
   }
 }
+
