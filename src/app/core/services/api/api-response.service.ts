@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AccountList } from '@app/interfaces/api.interface';
 import { Observable } from 'rxjs';
+import { UserResponse } from '@app/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,7 @@ export class ApiResponseService {
   //get all users
 
   getAllUsers() {
-    return this.http.get(this.baseUrl + '/users', this.httpOptions);
+    return this.http.get<UserResponse[]>(this.baseUrl + '/users', this.httpOptions);
   }
   getAllTransactions():Observable<AccountList>{
     return this.http.get<AccountList>(this.baseUrl + '/transactions')

@@ -33,6 +33,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'lista-usuarios',
+    loadChildren: () =>
+    import('./pages/usuarios/usuarios-list/usuarios-list.module').then(
+      (m) => m.UsuariosListModule
+    ),
+  },
+  {
     path: 'home',
     canActivate: [HomeGuard],
     component: HomeComponent,
