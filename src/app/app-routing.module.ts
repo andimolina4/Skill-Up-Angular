@@ -28,9 +28,16 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () =>
-      import('./pages/usuarios/usuario-perfil.module').then(
+      import('./pages/usuarios/usuario-perfil-detail/usuario-perfil-detail/usuario-perfil.module').then(
         (m) => m.UsuarioPerfilModule
       ),
+  },
+  {
+    path: 'lista-usuarios',
+    loadChildren: () =>
+    import('./pages/usuarios/usuarios-list/usuarios-list.module').then(
+      (m) => m.UsuariosListModule
+    ),
   },
   {
     path: 'home',
