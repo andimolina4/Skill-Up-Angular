@@ -35,7 +35,7 @@ export class TableComponent implements OnInit,OnChanges {
   currentPage:number = 1
   avaliablePages:AvaliablePages = <AvaliablePages>{}
 
-  //MobileQuery, Should move to Service since it's used here and in app-component
+  //MobileQuery, Should move to Service since it's used on others component
   mobileQuery: MediaQueryList;
 
 
