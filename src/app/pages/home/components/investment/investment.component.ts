@@ -117,4 +117,8 @@ export class InvestmentComponent implements OnInit {
     this.profitPercentage =
       this.resultado - this.fixedTermDepositForm.get('amount')?.value;
   }
+
+  depositFixedTerm() {
+    console.log('Deposit Fixed Term');
+  }
 }
