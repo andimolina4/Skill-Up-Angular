@@ -1,5 +1,4 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { ApiResponseService } from '@app/core/services/api/api-response.service';
 import { Account } from '@app/interfaces/api.interface';
 import { ChartConfiguration, ChartOptions} from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
@@ -39,7 +38,6 @@ export class GraphicSingleComponent implements OnInit,OnChanges {
   };
 
   constructor(
-    private dataService:ApiResponseService
     ) {}
 
   ngOnInit(): void {
@@ -51,7 +49,7 @@ export class GraphicSingleComponent implements OnInit,OnChanges {
     this.dataArray.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     if(this.dataArray.length > 0){
       let daysInGraph = daysBetween(new Date(),new Date(this.dataArray[0].date))
-      let labels = pastNDays(daysInGraph)
+      let labels = pastNDays(daysInGraph+1)
       this.lineChartData.labels = labels.reverse()
       this.lineChartData.datasets[0].data = this.getDataValues(this.dataArray)
       this.chart.chart?.update()
@@ -60,10 +58,6 @@ export class GraphicSingleComponent implements OnInit,OnChanges {
   lineChartOptions: ChartOptions<'line'> = {
     responsive: true,
     maintainAspectRatio:true,
-  }
-
-  updateData(balance:any):void{
-
   }
 
 
@@ -76,12 +70,6 @@ export class GraphicSingleComponent implements OnInit,OnChanges {
     return balance
   }
 
-}
-
-
-function transformData(data:Account[]):Account[]{
-  // Filter and sort data
-  return data.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 }
 
 function daysBetween(date1:Date, date2:Date):number{

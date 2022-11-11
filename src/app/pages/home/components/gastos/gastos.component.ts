@@ -12,6 +12,8 @@ export class GastosComponent implements OnInit {
   data:Account[] = []
   nextPage:string|null = '/transactions'
 
+  isLoaded:boolean = false
+
   constructor(private dataService:ApiResponseService) { }
 
   ngOnInit(): void {
@@ -23,7 +25,6 @@ export class GastosComponent implements OnInit {
         {
           next:(response)=>{
             this.data = this.data.concat(response.data.filter(item=>item.type === 'payment'))
-            console.log(this.data)
             this.nextPage = response.nextPage
             this.getData()
           },
@@ -33,6 +34,9 @@ export class GastosComponent implements OnInit {
           }
         }
       )
+    }
+    else{
+      this.isLoaded = true
     }
     return
   }

@@ -13,3 +13,15 @@ export interface Account{
   type:string
   userId:number
 }
+
+//Testing, should change
+
+export interface Cuenta{
+  id:number,
+  creationDate:Date
+  money:string
+  isBlocked:boolean
+  userId:number
+  createdAt?:Date
+  updatedAt?:Date
+}
