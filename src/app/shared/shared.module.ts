@@ -16,11 +16,12 @@ import { TableComponent } from './components/table/table.component';
 import { TitleComponent } from './components/title/title.component';
 import { GraphicSingleComponent } from './components/graphic-single/graphic-single.component';
 import { TableSingleComponent } from './components/table-single/table-single.component';
+import { AccountsComponent } from './components/accounts/accounts.component';
 
 
 @NgModule({
-  declarations: [LoaderComponent, HeaderComponent, FooterComponent, SidebarComponent, GraphicsComponent, MovementsComponent, TableComponent, TitleComponent, GraphicSingleComponent, TableSingleComponent],
+  declarations: [LoaderComponent, HeaderComponent, FooterComponent, SidebarComponent, GraphicsComponent, MovementsComponent, TableComponent, TitleComponent, GraphicSingleComponent, TableSingleComponent, AccountsComponent],
   imports: [CommonModule, RouterModule, MaterialModule,FontAwesomeModule,NgChartsModule],
-  exports: [LoaderComponent, HeaderComponent, FooterComponent,SidebarComponent,GraphicsComponent,TableComponent,TitleComponent,GraphicSingleComponent,TableSingleComponent],
+  exports: [LoaderComponent, HeaderComponent, FooterComponent,SidebarComponent,GraphicsComponent,TableComponent,TitleComponent,GraphicSingleComponent,TableSingleComponent,AccountsComponent],
 })
 export class SharedModule {}

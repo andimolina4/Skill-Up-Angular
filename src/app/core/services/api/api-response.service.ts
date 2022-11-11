@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AccountList } from '@app/interfaces/api.interface';
+import { AccountList, Cuenta } from '@app/interfaces/api.interface';
 import { Observable } from 'rxjs';
 import { UserResponse } from '@app/interfaces/user.interface';
 
@@ -24,6 +24,10 @@ export class ApiResponseService {
   };
 
   //get all users
+
+  getAccounts():Observable<Cuenta[]>{
+    return this.http.get<Cuenta[]>(this.baseUrl + '/accounts/me')
+  }
 
   getAllUsers() {
     return this.http.get<any>(this.baseUrl + '/users', this.httpOptions);
