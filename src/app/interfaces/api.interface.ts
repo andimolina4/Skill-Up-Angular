@@ -25,3 +25,10 @@ export interface Cuenta{
   createdAt?:Date
   updatedAt?:Date
 }
+
+export interface DepositForm{
+  accountID:string
+  amount:number
+  concept:string
+  date:Date
+}

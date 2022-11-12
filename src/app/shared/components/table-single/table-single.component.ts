@@ -20,7 +20,7 @@ export class TableSingleComponent implements OnInit,OnChanges {
 
   @Input() data:Account[] = []
 
-  displayedColumns: string[] = ['Date', 'Type', 'Concept', 'Amount']
+  displayedColumns: string[] = ['Date','Account', 'Type', 'Concept', 'Amount']
   TABLE_DATA:Account[] = []
   dataSource:MatTableDataSource<Account> = new MatTableDataSource(this.TABLE_DATA)
 
@@ -41,7 +41,7 @@ export class TableSingleComponent implements OnInit,OnChanges {
     private apiService:ApiResponseService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     if(this.mobileQuery.matches){
-      this.displayedColumns= ['Date', 'Type', 'Amount']
+      this.displayedColumns= ['Date','Account', 'Type', 'Amount']
     }
   }
 

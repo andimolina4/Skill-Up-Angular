@@ -1,4 +1,9 @@
 <app-title [title]="!isEditing ? 'Realizar Envio':'Editar Transaccion'"></app-title>
+
+
+<ng-container *ngIf="!isEditing">
+  <app-accounts></app-accounts>
+</ng-container>
 <div class="to">
   Para:
   <div class="img-holder">
@@ -6,10 +11,10 @@
   </div>
   <p class="name">{{userData.first_name +' '+ userData.last_name}}</p>
 </div>
-<app-form [editing]="isEditing"></app-form>
+<app-form [editing]="isEditing" (formData)="checkForm($event)"></app-form>
 <div class="buttons">
-    <button mat-raised-button color="primary">{{!isEditing ? 'Enviar':'Acutalizar'}}</button>
-    <button mat-raised-button color="error" routerLink="/home">Cancelar</button>
+    <button (click)="sendMoney()" mat-raised-button color="primary" [disabled]="!formValid">{{!isEditing ? 'Enviar':'Acutalizar'}}</button>
+    <button mat-raised-button color="error" routerLink="/home/send-founds">Cancelar</button>
 </div>
 
 <ng-container *ngIf="isLoadingUser">
@@ -17,3 +22,4 @@
     <app-loader></app-loader>
   </div>
 </ng-container>
+

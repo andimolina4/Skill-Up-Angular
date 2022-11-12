@@ -42,8 +42,6 @@ export class SaldoComponent implements OnInit {
     return
   }
 
-
-
 }
 
 

@@ -17,7 +17,7 @@ import { MaterialModule } from '@app/material/material.module';
     CommonModule,
     SaldoRoutingModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
   ]
 })
 export class SaldoModule { }

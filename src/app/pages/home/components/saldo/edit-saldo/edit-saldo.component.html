@@ -1,11 +1,15 @@
 <app-title [title]="!isEditing ? 'Realizar Carga':'Editar Transaccion'"></app-title>
-<div class="to-user">
-  <p>Para:</p>
-  
-</div>
-<app-form [editing]="isEditing"></app-form>
+<ng-container *ngIf="!isEditing">
+  <app-accounts (loaded)="isLoading = false"></app-accounts>
+</ng-container>
+<app-form (formData)="checkForm($event)" [editing]="isEditing"></app-form>
 <div class="buttons">
-    <button mat-raised-button color="primary">{{!isEditing ? 'Enviar':'Acutalizar'}}</button>
-    <button mat-raised-button color="error">Cancelar</button>
+    <button (click)="makeDeposit()" mat-raised-button color="primary" [disabled]="(!formValid)">{{!isEditing ? 'Cargar':'Acutalizar'}}</button>
+    <button mat-raised-button color="error" routerLink="/home/send-founds">Cancelar</button>
 </div>
+<ng-container *ngIf="isLoading">
+  <div class="loader">
+    <app-loader></app-loader>
+  </div>
+</ng-container>
 

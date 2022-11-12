@@ -1,5 +1,11 @@
 <form class="form-container" [formGroup]="actionForm" >
   <mat-form-field appearance="outline">
+    <mat-label>Elige Cuenta</mat-label>
+    <mat-select formControlName="accountID">
+      <mat-option [value]="item.id" *ngFor="let item of accounts">{{item.id}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
     <mat-label>Monto</mat-label>
     <input type="number" matInput formControlName="amount" >
         <mat-error *ngIf="actionForm.get('amount')?.invalid">El monto debe ser un número y mayor a 0.</mat-error>
