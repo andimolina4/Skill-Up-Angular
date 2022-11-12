@@ -1,1 +1,17 @@
-<p>send-founds works!</p>
+<app-title title="Enviar Dinero"></app-title>
+<h4 class="sub-title">¿Como desea proceder?</h4>
+<div class="enviar-dinero">
+  <button mat-raised-button (click)="toogleIdField()" [ngClass]="!showIdField ? 'button':''" color="error">{{!showIdField ? 'Enviar a un usuario':'Volver'}}</button>
+  <ng-container *ngIf="showIdField;else otherOptions">
+    <mat-form-field appearance="outline" style="margin-top: 50px;">
+      <mat-label>Id del usuario</mat-label>
+      <input type="number" matInput [formControl]="userID">
+    </mat-form-field>
+    <button class="button" mat-raised-button (click)="goToId()">Enviar</button>
+  </ng-container>
+  <ng-template #otherOptions>
+    <button class="button" routerLink="/lista-usuarios" mat-raised-button>Enviar desde contactos</button>
+    <button class="button" routerLink="/home/saldo/carga" mat-raised-button >Cargar a mi cuenta</button>
+  </ng-template>
+</div>
+

@@ -1,0 +1,17 @@
+<form class="form-container" [formGroup]="actionForm" >
+  <mat-form-field appearance="outline">
+    <mat-label>Monto</mat-label>
+    <input type="number" matInput formControlName="amount" >
+        <mat-error *ngIf="actionForm.get('amount')?.invalid">El monto debe ser un número y mayor a 0.</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Concepto</mat-label>
+    <textarea matInput formControlName="concept"></textarea>
+    <mat-error *ngIf="actionForm.get('concept')?.invalid">Ingrese una descripción corta</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Fecha</mat-label>
+    <input type="date" matInput formControlName="date">
+    <mat-error *ngIf="actionForm.get('date')?.invalid">Fecha Requerida.</mat-error>
+  </mat-form-field>
+</form>
