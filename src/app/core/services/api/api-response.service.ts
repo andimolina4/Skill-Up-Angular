@@ -24,11 +24,9 @@ export class ApiResponseService {
   };
 
   //get all users
-
   getAccounts():Observable<Cuenta[]>{
     return this.http.get<Cuenta[]>(this.baseUrl + '/accounts/me')
   }
-
   getAllUsers() {
     return this.http.get<any>(this.baseUrl + '/users', this.httpOptions);
   }
@@ -37,6 +35,9 @@ export class ApiResponseService {
   }
   getTransactionsPage(nextPage:string):Observable<AccountList>{
     return this.http.get<AccountList>(this.baseUrl + nextPage)
+  }
+  makeDeposit(id:string,reqBody:any):Observable<any>{
+    return this.http.post(`${this.baseUrl}/accounts/${id}`,reqBody)
   }
 }
 

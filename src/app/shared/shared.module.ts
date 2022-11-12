@@ -17,11 +17,13 @@ import { TitleComponent } from './components/title/title.component';
 import { GraphicSingleComponent } from './components/graphic-single/graphic-single.component';
 import { TableSingleComponent } from './components/table-single/table-single.component';
 import { AccountsComponent } from './components/accounts/accounts.component';
+import { FormComponent } from './components/form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [LoaderComponent, HeaderComponent, FooterComponent, SidebarComponent, GraphicsComponent, MovementsComponent, TableComponent, TitleComponent, GraphicSingleComponent, TableSingleComponent, AccountsComponent],
-  imports: [CommonModule, RouterModule, MaterialModule,FontAwesomeModule,NgChartsModule],
-  exports: [LoaderComponent, HeaderComponent, FooterComponent,SidebarComponent,GraphicsComponent,TableComponent,TitleComponent,GraphicSingleComponent,TableSingleComponent,AccountsComponent],
+  declarations: [LoaderComponent, HeaderComponent, FooterComponent, SidebarComponent, GraphicsComponent, MovementsComponent, TableComponent, TitleComponent, GraphicSingleComponent, TableSingleComponent, AccountsComponent, FormComponent],
+  imports: [CommonModule, RouterModule, MaterialModule,FontAwesomeModule,NgChartsModule,ReactiveFormsModule],
+  exports: [LoaderComponent, HeaderComponent, FooterComponent,SidebarComponent,GraphicsComponent,TableComponent,TitleComponent,GraphicSingleComponent,TableSingleComponent,AccountsComponent,FormComponent],
 })
 export class SharedModule {}
