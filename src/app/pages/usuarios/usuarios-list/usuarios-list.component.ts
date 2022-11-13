@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiResponseService } from '@app/core/services/api/api-response.service';
 import { AuthService } from '@app/core/services/auth/auth.service';
 import { UserResponse } from '@app/interfaces/user.interface';
@@ -12,7 +13,7 @@ export class UsuariosListComponent implements OnInit {
 
   users: UserResponse[] = [];
 
-  constructor(private apiService: ApiResponseService, private authService: AuthService) { }
+  constructor(private apiService: ApiResponseService, private router: Router) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -31,6 +32,12 @@ export class UsuariosListComponent implements OnInit {
 
   getFirstLetter(word: string) {
     return word.charAt(0);
+  }
+
+  goToSendMoney(id: number) {
+    if(id) {
+      this.router.navigateByUrl(`/home/gastos/carga?userId=${id}`);
+    }
   }
 
 }
