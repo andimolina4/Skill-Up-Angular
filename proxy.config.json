@@ -1,0 +1,6 @@
+{
+    "https://api-dolar-argentina.herokuapp.com/api/dolaroficial": {
+    "target": "http://localhost:4200",
+    "secure": false
+    }
+}
