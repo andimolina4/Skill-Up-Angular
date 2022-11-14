@@ -1,1 +1,22 @@
-<p>exchange works!</p>
+<div class="title">
+    <h2>Convertir dinero</h2>
+    <h5>Venta: {{ exchangeResponse.casa.venta }} - Compra: {{ exchangeResponse.casa.compra }}</h5>
+</div>
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="container">
+    <div class="col-6">
+      <label for="inputPesos" class="form-label">Pesos</label>
+      <input type="" class="form-control" id="inputPesos"  formControlName="pesos">
+      <div *ngIf="form.get('pesos')?.touched && form.get('dolares')?.errors" class="alert alert-danger">Campo requerido</div>
+    </div>
+    <div>
+      <img src="../../../../../assets/img/iconoconvert.svg" alt="icono" class="btn">
+    
+    </div>
+    <div class="col-6">
+      <label for="inputDolares" class="form-label">Dólares</label>
+      <input type="" class="form-control" id="inputDolares" formControlName="dolares">
+    </div>
+    <div class="col-md-12 text-center">
+      <button type="submit" class="btn">Convertir</button>
+    </div>
+  </form> 

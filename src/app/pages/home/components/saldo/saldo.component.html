@@ -1,1 +1,10 @@
-<p>saldo works!</p>
+<div class="ingresos-section">
+  <app-title title="Ingresos" ></app-title>
+  <app-graphic-single [label]="'Ingresos'" title="Todos los ingresos" [dataArray]="data"></app-graphic-single>
+  <app-table-single [data]="data"></app-table-single>
+</div>
+<ng-container *ngIf="!isLoaded">
+  <div class="loader">
+    <app-loader></app-loader>
+  </div>
+</ng-container>

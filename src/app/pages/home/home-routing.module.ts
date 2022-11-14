@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home-page/home.component';
 
 const routes: Routes = [
   {
@@ -24,13 +23,6 @@ const routes: Routes = [
     path: 'gastos',
     loadChildren: () =>
       import('./components/gastos/gastos.module').then((m) => m.GastosModule),
-  },
-  {
-    path: 'balance',
-    loadChildren: () =>
-      import('./components/balance/balance.module').then(
-        (m) => m.BalanceModule
-      ),
   },
   {
     path: 'my-account',
@@ -61,7 +53,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'investment',
+    path: 'inversiones',
     loadChildren: () =>
       import('./components/investment/investment.module').then(
         (m) => m.InvestmentModule

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeGuard } from './core/guards/home.guard';
 import { HomeComponent } from './pages/home/home-page/home.component';
 
 const routes: Routes = [
@@ -25,7 +26,22 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'perfil',
+    loadChildren: () =>
+      import('./pages/usuarios/usuario-perfil-detail/usuario-perfil-detail/usuario-perfil.module').then(
+        (m) => m.UsuarioPerfilModule
+      ),
+  },
+  {
+    path: 'lista-usuarios',
+    loadChildren: () =>
+    import('./pages/usuarios/usuarios-list/usuarios-list.module').then(
+      (m) => m.UsuariosListModule
+    ),
+  },
+  {
     path: 'home',
+    canActivate: [HomeGuard],
     component: HomeComponent,
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),

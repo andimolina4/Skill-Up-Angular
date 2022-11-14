@@ -1,0 +1,8 @@
+<div class="accounts-list">
+  <ng-container *ngFor="let account of accounts">
+    <div class="account">
+      <p class="id">Cuenta {{account.id}}</p>
+      <p class="money">${{account.money}}</p>
+    </div>
+  </ng-container>
+</div>

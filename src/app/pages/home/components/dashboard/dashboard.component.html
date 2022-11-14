@@ -1,1 +1,19 @@
-<p>dashboard works!</p>
+<section class="home-container">
+    <app-title title="Dashboard"></app-title>
+    <div class="accounts-container">
+      <app-accounts (loaded)="changeLoaded($event)"></app-accounts>
+    </div>
+
+    <div class="graphic-container">
+      <app-graphics style="margin:auto" [title]="'Ultimos 30 días'"></app-graphics>
+    </div>
+
+    <div class="last-transactions">
+      <app-table></app-table>
+    </div>
+</section>
+<ng-container *ngIf="!accountsLoaded">
+  <div class="loader">
+    <app-loader></app-loader>
+  </div>
+</ng-container>

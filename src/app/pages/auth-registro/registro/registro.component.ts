@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AlertsService } from '@app/core/services/alerts/alerts.service';
 import { AuthService } from '@app/core/services/auth/auth.service';
 import { UserRequest } from '@app/interfaces/user.interface';
 import { faCoffee, faUserMd } from '@fortawesome/free-solid-svg-icons';
 import { CustomValidators } from '../validators/customValidators';
+import { DialogTermsAndCondition } from '@app/shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-registro',
@@ -19,15 +21,17 @@ export class RegistroComponent implements OnInit {
     last_name: '',
     email: '',
     password: '',
-    roleId: 2,
+    roleId: 1,
     points: 20
   };
+
+  terminosYCondiciones: string = 'Estos son los terminos y condiciones de AlkeBank. Estos  son los terminos y condiciones de AlkeBank. son los terminos y condiciones de AlkeBank. son los terminos y condiciones de AlkeBank.'
 
   faUser = faUserMd;
 
   registerForm!: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder, private authService: AuthService, private alertsService: AlertsService, private router: Router) { }
+  constructor(private _formBuilder: FormBuilder, private authService: AuthService, private alertsService: AlertsService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.registerForm = this._formBuilder.group({
@@ -61,6 +65,13 @@ export class RegistroComponent implements OnInit {
     let pass = this.registerForm.get('password')?.value;
     let confirmPass = this.registerForm.get('confirmPassword')?.value
     return pass === confirmPass ? null : { notSame: true }
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogTermsAndCondition, {
+      width: '250px',
+      data: {data: this.terminosYCondiciones},
+    });
   }
 
 }

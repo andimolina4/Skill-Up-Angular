@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  accountsLoaded:boolean = false
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeLoaded(newValue:boolean){
+    this.accountsLoaded = newValue
   }
 
 }

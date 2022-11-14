@@ -1,0 +1,16 @@
+.not-found-container{
+  width: 100%;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #374151;
+  .title{
+    font-weight: bolder;
+    font-size: 70px;
+  }
+  .link{
+    font-weight: bold;
+  }
+}

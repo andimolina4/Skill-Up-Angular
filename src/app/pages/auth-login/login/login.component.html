@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="container-fluid">
+  <p class="text-center">Iniciar Sesión</p>
+  <form [formGroup]="loginForm">
+    <div class="form-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput required formControlName="email" [(ngModel)]="user.email">
+        <mat-icon matPrefix>email</mat-icon>
+        <mat-error *ngIf="loginForm.controls['email'].invalid">El Email es obligatorio.</mat-error>
+        <mat-error *ngIf="loginForm.controls['email'].hasError('pattern')">Por favor, ingrese un email válido.</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput required formControlName="password" [(ngModel)]="user.password" type="password">
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-error *ngIf="loginForm.controls['password'].invalid && !loginForm.controls['password'].hasError('minlength')" >La contraseña es obligatoria.</mat-error>
+        <mat-error *ngIf="loginForm.controls['password'].hasError('minlength')">La contraseña es obligatoria.</mat-error>
+      </mat-form-field>
+    </div>
+    <br>
+    <br>
+    <div class="form-field">
+      <button mat-raised-button color="primary" type="button" (click)="onLogin()" [disabled]="!loginForm.valid">Iniciar Sesión</button>
+    </div>
+  </form>
+  <br>
+  <div style="justify-content: center; display: flex;">
+    No tengo cuenta. <a href="auth/registro">Registrame.</a>
+  </div>
+</div>
+

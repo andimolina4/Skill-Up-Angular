@@ -1,0 +1,29 @@
+.header{
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666d77;
+  background-color: #fafafa;
+  z-index: 3;
+  .logo-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    img{
+      height: 60%;
+    }
+    .logo{
+      transition: 0.5s;
+      transition-delay: 0.3s;
+      transform: translateY(-200px);
+    }
+    .hidden{
+      transition-delay: 0;
+      transform: translate(0);
+    }
+  }
+}
+
